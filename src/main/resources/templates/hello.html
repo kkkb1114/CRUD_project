@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <h1>리스트</h1>
+    <table>
+        <thead class="thead-light">
+        <tr class="text-center">
+            <th scope="col">번호</th>
+            <th scope="col">이름</th>
+            <th scope="col">비밀번호</th>
+            <th scope="col">성별</th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr th:each="member : ${member}">
+            <td scope="row" width="10%">
+                <div th:text="${member._id}"></div>
+            </td>
+            <td scope="row" width="20%">
+                <div th:text="${member.userName}"></div>
+            </td>
+            <td scope="row" width="20%">
+                <div th:text="${member.userPassword}"></div>
+            </td>
+            <td scope="row" width="10%">
+                <div th:text="${member.userGender}"></div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</th:block>
+</body>
+</html>
