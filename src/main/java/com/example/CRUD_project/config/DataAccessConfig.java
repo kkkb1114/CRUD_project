@@ -13,18 +13,19 @@ import javax.sql.DataSource;
 @Configuration
 @MapperScan(basePackages = "com.example.CRUD_project.dao")
 public class DataAccessConfig {
+
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource);
         sessionFactoryBean.setMapperLocations(
-                new PathMatchingResourcePatternResolver().getResource("classpath*:mapper/**/*.xml")
+                new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/**/*.xml")
         );
         return sessionFactoryBean.getObject();
     }
 
     @Bean
-    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sessionFactory){
-        return new SqlSessionTemplate(sessionFactory);
+    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
+        return new SqlSessionTemplate(sqlSessionFactory);
     }
 }

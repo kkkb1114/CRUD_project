@@ -15,6 +15,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public List<MemberModel> printMember(){
+        System.out.println("asdasas"+memberDao.getMemberList().toString());
         return memberDao.getMemberList();
     }
 }
