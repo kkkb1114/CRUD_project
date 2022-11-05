@@ -18,6 +18,6 @@ public class MemberController {
     public String getMemberList(Model model){
         List<MemberModel> memberModelList = memberService.printMember();
         model.addAttribute("memberList", memberModelList);
-        return "";
+        return "hello";
     }
 }

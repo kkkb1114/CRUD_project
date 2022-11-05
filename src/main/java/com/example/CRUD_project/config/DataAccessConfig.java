@@ -18,7 +18,7 @@ public class DataAccessConfig {
         SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource);
         sessionFactoryBean.setMapperLocations(
-                new PathMatchingResourcePatternResolver().getResource("classpath:mapper/*.xml")
+                new PathMatchingResourcePatternResolver().getResource("classpath*:mapper/**/*.xml")
         );
         return sessionFactoryBean.getObject();
     }

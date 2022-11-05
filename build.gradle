@@ -32,9 +32,10 @@ dependencies {
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
 	implementation group: 'org.mybatis', name: 'mybatis', version: '3.5.4'
 	implementation group: 'org.mybatis', name: 'mybatis-spring', version: '2.0.4'
-	implementation group: 'org.springframework', name: 'spring-jdbc', version: '5.2.2.RELEASE'
+	implementation group: 'org.springframework', name: 'spring-jdbc', version: '5.3.23'
 	implementation 'mysql:mysql-connector-java:8.0.30'
 	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.30'
+	implementation('org.springframework:spring-jdbc:5.3.23')
 }
 
 tasks.named('test') {
