@@ -1,8 +1,9 @@
-package com.example.CRUD_project.service;
+package com.example.CRUD_project.service.Impl;
 
 import com.example.CRUD_project.DTO.MemberDTO;
-import com.example.CRUD_project.Repository.MemberRepository;
+import com.example.CRUD_project.repository.MemberRepository;
 import com.example.CRUD_project.domain.Member;
+import com.example.CRUD_project.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,11 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class ApiServiceImpl implements ApiService {
+public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository memberRepository;
 
@@ -41,7 +43,7 @@ public class ApiServiceImpl implements ApiService {
         List<MemberDTO> memberDTOList = new ArrayList<>();
         for (Member member : memberList){
             MemberDTO memberDTO = MemberDTO.builder()
-                    ._id(member.get_id())
+                    .id(member.getId())
                     .userName(member.getUserName())
                     .userPassword(member.getUserPassword())
                     .userGender(member.getUserGender())
@@ -53,9 +55,22 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public ResponseEntity deleteById(Long id){
+    public ResponseEntity deleteById(Long _id){
         try {
-            memberRepository.deleteById(id);
+            memberRepository.deleteById(_id);
+            return new ResponseEntity("success", HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity("fail", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @Override
+    public ResponseEntity update(Long _id, MemberDTO memberDTO){
+        try {
+            Optional<Member> member = memberRepository.findById(_id);
+            Member memberEntity = member.orElseGet(null);
+            memberEntity.update(memberDTO);
             return new ResponseEntity("success", HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();

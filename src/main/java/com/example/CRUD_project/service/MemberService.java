@@ -6,8 +6,9 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-public interface ApiService {
+public interface MemberService {
     ResponseEntity save(MemberDTO memberDTO);
     List<MemberDTO> findAll();
-    ResponseEntity deleteById(Long id);
+    ResponseEntity deleteById(Long _id);
+    ResponseEntity update(Long id, MemberDTO memberDTO);
 }
