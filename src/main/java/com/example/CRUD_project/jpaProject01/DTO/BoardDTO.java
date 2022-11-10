@@ -1,6 +1,6 @@
-package com.example.CRUD_project.DTO;
+package com.example.CRUD_project.jpaProject01.DTO;
 
-import com.example.CRUD_project.domain.Member;
+import com.example.CRUD_project.jpaProject01.domain.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,13 +1,10 @@
-package com.example.CRUD_project.domain;
+package com.example.CRUD_project.jpaProject01.domain;
 
-import com.example.CRUD_project.DTO.BoardDTO;
-import com.example.CRUD_project.DTO.MemberDTO;
+import com.example.CRUD_project.jpaProject01.DTO.MemberDTO;
 import lombok.*;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @Getter: 메소드를 생성해준다.

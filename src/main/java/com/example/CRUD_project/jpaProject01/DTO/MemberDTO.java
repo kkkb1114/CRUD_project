@@ -1,4 +1,4 @@
-package com.example.CRUD_project.DTO;
+package com.example.CRUD_project.jpaProject01.DTO;
 
 import lombok.Builder;
 import lombok.Getter;

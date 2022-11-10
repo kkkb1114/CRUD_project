@@ -1,9 +1,9 @@
-package com.example.CRUD_project.service.Impl;
+package com.example.CRUD_project.jpaProject01.service.Impl;
 
-import com.example.CRUD_project.DTO.MemberDTO;
-import com.example.CRUD_project.repository.MemberRepository;
-import com.example.CRUD_project.domain.Member;
-import com.example.CRUD_project.service.MemberService;
+import com.example.CRUD_project.jpaProject01.DTO.MemberDTO;
+import com.example.CRUD_project.jpaProject01.repository.MemberRepository;
+import com.example.CRUD_project.jpaProject01.domain.Member;
+import com.example.CRUD_project.jpaProject01.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,9 +55,9 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public ResponseEntity deleteById(Long _id){
+    public ResponseEntity deleteById(Long id){
         try {
-            memberRepository.deleteById(_id);
+            memberRepository.deleteById(id);
             return new ResponseEntity("success", HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,9 +66,9 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public ResponseEntity update(Long _id, MemberDTO memberDTO){
+    public ResponseEntity update(Long id, MemberDTO memberDTO){
         try {
-            Optional<Member> member = memberRepository.findById(_id);
+            Optional<Member> member = memberRepository.findById(id);
             Member memberEntity = member.orElseGet(null);
             memberEntity.update(memberDTO);
             return new ResponseEntity("success", HttpStatus.OK);

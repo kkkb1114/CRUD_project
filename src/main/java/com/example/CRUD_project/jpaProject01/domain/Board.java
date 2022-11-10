@@ -1,9 +1,8 @@
-package com.example.CRUD_project.domain;
+package com.example.CRUD_project.jpaProject01.domain;
 
-import com.example.CRUD_project.DTO.BoardDTO;
+import com.example.CRUD_project.jpaProject01.DTO.BoardDTO;
 import lombok.*;
 import org.hibernate.annotations.DynamicUpdate;
-import org.w3c.dom.Text;
 
 import javax.persistence.*;
 

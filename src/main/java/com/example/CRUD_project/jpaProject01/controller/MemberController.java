@@ -1,7 +1,7 @@
-package com.example.CRUD_project.controller;
+package com.example.CRUD_project.jpaProject01.controller;
 
-import com.example.CRUD_project.DTO.MemberDTO;
-import com.example.CRUD_project.service.MemberService;
+import com.example.CRUD_project.jpaProject01.DTO.MemberDTO;
+import com.example.CRUD_project.jpaProject01.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/memberApi")
+@RequestMapping("/jpaProject01/memberApi")
 @RequiredArgsConstructor
 public class MemberController {
 
@@ -29,13 +29,13 @@ public class MemberController {
         return "member";
     }
 
-    @DeleteMapping("/delete/{_id}")
-    public ResponseEntity delete(@PathVariable Long _id) {
-        return memberService.deleteById(_id); // return ResponseEntity
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity delete(@PathVariable Long id) {
+        return memberService.deleteById(id); // return ResponseEntity
     }
 
-    @PatchMapping("/update/{_id}")
-    public ResponseEntity update(@PathVariable Long _id, @RequestBody MemberDTO memberDTO) {
-        return memberService.update(_id, memberDTO);
+    @PatchMapping("/update/{id}")
+    public ResponseEntity update(@PathVariable Long id, @RequestBody MemberDTO memberDTO) {
+        return memberService.update(id, memberDTO);
     }
 }
