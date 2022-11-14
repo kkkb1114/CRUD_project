@@ -17,6 +17,12 @@ public class CrudProjectApplication {
 	public static void main(String[] args) {
 		//SpringApplication.run(CrudProjectApplication.class, args);
 
+		//jpaProject02_EntityManagerFactory();
+		jpaProject03_EntityManagerFactory();
+	}
+
+	/** jpaProject02 ~~~ */
+	public static void jpaProject02_EntityManagerFactory(){
 		// [엔티티 매니저 팩토리] - 생성
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpabook");
 		// [엔티티 매니저] - 생성
@@ -25,7 +31,7 @@ public class CrudProjectApplication {
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		try {
 			entityTransaction.begin(); // [트랜잭션] - 시작
-			logic(entityManager); // 비즈니스 로직 실행
+			jpaProject02_logic(entityManager); // 비즈니스 로직 실행
 			entityTransaction.commit();  // [트랜잭션] - 커밋
 		} catch (Exception e) {
 			entityTransaction.rollback(); // [트랜잭션] - 롤백
@@ -37,7 +43,7 @@ public class CrudProjectApplication {
 	}
 
 	// 비즈니스 로직
-	public static void logic(EntityManager entityManager){
+	public static void jpaProject02_logic(EntityManager entityManager){
 		String id = "_id1";
 		Member02 member02 = new Member02();
 		member02.setId(id);
@@ -63,4 +69,18 @@ public class CrudProjectApplication {
 		// 삭제
 		entityManager.remove(member02);
 	}
+	/** ~~~ jpaProject02 */
+
+
+	/** jpaProject03 ~~~ */
+	public static void jpaProject03_EntityManagerFactory(){
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpabook");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		// 엔티티 매니저는 데이터 변경 시 트랜잭션을 시작해야 한다.
+		entityTransaction.begin();
+		Member02 member02 = entityManager.find(Member02.class, "member1");
+		entityManager.persist();
+	}
+	/** ~~~ jpaProject03 */
 }
