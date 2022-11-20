@@ -12,7 +12,7 @@ import javax.persistence.*;
  * @Entity: JPA를 사용해서 테이블과 매핑할 클래스는 @Entity를 필수로 붙여야 한다. Entity와 테이블 명을 다르게 하고 싶다면 @Table을 사용한다.
  * @Builder: 빌더 패턴을 자동으로 생성해준다. builder():빌더 클래스의 인스턴스 생성, build(): 실제 생성자 호출하여 객체 생성성
  * @DynamicUpdate: 실제 값이 변경된 컬럼으로만 update 쿼리를 만들어주는 어노테이션 (JPA는 기본적으로 변경되지 않은 컬럼도 update 쿼리에 포함하기에 해당 어노테이션이 필요한 경우가 있다.)
- * @AllArgsConstructor:
+ * @AllArgsConstructor: 자동으로 생성자를 만들어 생성자를 만들떄 변수에 대한 값 또한 넣을 수 있게 한다. ex) this.userName = userName;
  * @Id: PK(기본키)를 직접 할당할 필드에 적용한다.
  * */
 @Getter
