@@ -22,8 +22,8 @@ public class Member_1 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", length = 255, nullable = false)
-    Long id;
+    @Column(name = "Member_1_id", length = 255, nullable = false)
+    Long Member_1_id;
 
     @Column(name = "memberId", nullable = false)
     String memberId;

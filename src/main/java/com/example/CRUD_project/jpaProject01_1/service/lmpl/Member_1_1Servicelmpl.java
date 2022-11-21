@@ -28,6 +28,7 @@ public class Member_1_1Servicelmpl implements Member_1Service {
                     .memberPassword(memberDTO.getMember_1Password())
                     .memberName(memberDTO.getMember_1Name())
                     .build();
+            System.out.println("333333333: "+memberDTO.getMember_1Id()+memberDTO.getMember_1Name()+memberDTO.getMember_1Password());
             memberRepository.save(member);
             return new ResponseEntity("success", HttpStatus.OK);
         } catch (Exception e) {
